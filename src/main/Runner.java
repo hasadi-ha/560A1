@@ -12,7 +12,7 @@ public class Runner {
 
 	public static void main(String[] args) throws IOException {
 		TextFileReader reader = new TextFileReader();
-		List<List<String>> ary = reader.getTextFileComponents("Australia.txt");
+		List<List<String>> ary = reader.getTextFileComponents("UnitedStates.txt");
 		Loader loader = new Loader();
 		
 		Constants.STATES = loader.makeGraph(ary);
@@ -21,7 +21,11 @@ public class Runner {
 		for (State s : Constants.STATES) {
 			System.out.println(s.printRow());
 		}
-
+		
+		System.out.println();
+		
+		BackTracker bt = new BackTracker();
+		bt.startColoring();
 
 	}
 

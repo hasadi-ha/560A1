@@ -18,6 +18,10 @@ public class State {
 		this.color = Constants.DUMMY_COLOR;
 	}
 	
+	public boolean hasColor() {
+		return !this.color.same(Constants.DUMMY_COLOR);
+	}
+	
 	public void assignColor(Color color) {
 		this.color = color;
 	}
@@ -50,22 +54,10 @@ public class State {
 		this.color = Constants.DUMMY_COLOR;
 	}
 	
-	
-	public void setChildrenColors() {
-		for (State c : this.getConnectedTo()) {
-			c.addConnectedFrom(this);
-			if (c.getColor().same(Constants.DUMMY_COLOR)) {
-				
-				c.assignColor(Constants.COLORS.get(0));
-				if (this.goodColoringChoice()) {
-					c.setChildrenColors();
-				} else {
-					
-				}
-			}
-		}
-		
+	public String printColor() {
+		return this.color.getColor();
 	}
+
 	
 	public String printRow() {
 		StringBuilder builder = new StringBuilder();
@@ -91,5 +83,7 @@ public class State {
 		}
 		return true;
 	}
+	
+	
 
 }
