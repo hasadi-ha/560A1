@@ -7,19 +7,18 @@ import constants.Constants;
 
 public class State {
 	
-	private State connectedFrom;
 	private List<State> connectedTo;
 	private String name;
 	private Color color;
 	
+	/**
+	 * Initializes state object
+	 * @param name is the name of the state
+	 */
 	public State(String name) {
 		this.name = name;
 		this.connectedTo = new ArrayList<>();
 		this.color = Constants.DUMMY_COLOR;
-	}
-	
-	public boolean hasColor() {
-		return !this.color.same(Constants.DUMMY_COLOR);
 	}
 	
 	public void assignColor(Color color) {
@@ -30,16 +29,8 @@ public class State {
 		connectedTo.add(s);
 	}
 	
-	public void addConnectedFrom(State s) {
-		this.connectedFrom = s;
-	}
-	
 	public List<State> getConnectedTo() {
 		return connectedTo;
-	}
-	
-	public State getConnectedFrom() {
-		return this.connectedFrom;
 	}
 	
 	public String getName() {
@@ -50,15 +41,24 @@ public class State {
 		return color;
 	}
 	
+	/**
+	 * Sets color back to dummy color
+	 */
 	public void removeColor() {
 		this.color = Constants.DUMMY_COLOR;
 	}
 	
+	/**
+	 * @return state name and color
+	 */
 	public String printColor() {
-		return this.color.getColor();
+		return this.getName()  + "\t" + this.color.getColor();
 	}
 
-	
+	/**
+	 * Prints current state and all the states that are adjacent to it.
+	 * @return Current state and all adjacent states
+	 */
 	public String printRow() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.getName()).append("\t -> \t");
@@ -68,6 +68,11 @@ public class State {
 		return builder.toString();
 	}
 	
+	/**
+	 * Checks if state name is the same as other state name
+	 * @param other is the state being comapred to
+	 * @return true if and only if this state is the same as the other one
+	 */
 	public boolean same(State other) {
 		if (this.getName().equals(other.getName())) {
 			return true;
@@ -75,6 +80,11 @@ public class State {
 		return false;
 	}
 	
+	/**
+	 * Checks all adjacent nodes and sees if any of the colors are the same.
+	 * Will automatically ignore if adjacent states all have "dummy" color
+	 * @return true if valid coloring choice
+	 */
 	public boolean goodColoringChoice() {
 		for (State s : this.connectedTo) {
 			if (s.getColor().same(this.getColor())) {

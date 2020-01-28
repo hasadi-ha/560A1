@@ -12,6 +12,11 @@ public class Color {
 		return c;
 	}
 
+	/**
+	 * Compare colors using this method.
+	 * @param other the color you are comparing current object to
+	 * @return true if and only if the colors are the same.
+	 */
 	public boolean same(Color other) {
 		if (this.getColor().equals(other.getColor())) {
 			return true;

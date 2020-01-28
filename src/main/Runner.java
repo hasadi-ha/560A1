@@ -3,30 +3,31 @@ package main;
 import java.io.IOException;
 import java.util.List;
 
-import bean.State;
+import constants.Constants;
 import readers.Loader;
 import readers.TextFileReader;
-import constants.Constants;
 
 public class Runner {
 
 	public static void main(String[] args) throws IOException {
+		//read text file
 		TextFileReader reader = new TextFileReader();
-		List<List<String>> ary = reader.getTextFileComponents("UnitedStates.txt");
+		List<List<String>> ary = reader.getTextFileComponents("Australia.txt");
 		Loader loader = new Loader();
 		
+		//store states and colors (assuming static class)
 		Constants.STATES = loader.makeGraph(ary);
 		Constants.COLORS = loader.loadColors(ary.get(0));
 		
-		for (State s : Constants.STATES) {
-			System.out.println(s.printRow());
-		}
+		//print graph before coloring
+		loader.printGraph();
 		
-		System.out.println();
-		
-		BackTracker bt = new BackTracker();
-		bt.startColoring();
+		//start coloring through simple backtracking
+		BackTracker simpleBackTracker = new BackTracker();
+		simpleBackTracker.startColoring();
 
 	}
+	
+	
 
 }
