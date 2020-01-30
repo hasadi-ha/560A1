@@ -27,6 +27,7 @@ public class BackTracker {
 		for (State state : Constants.STATES) {
 			builder.append(state.printColor() + "\n");
 		}
+		builder.append(Constants.STEPS + "\n");
 		return builder.toString();
 	}
 	
@@ -38,6 +39,7 @@ public class BackTracker {
 	 */
 	public boolean colorState(int currentIndex) {
 		State current = Constants.STATES.get(currentIndex);
+		Constants.STEPS ++;
 		for (int i = 0; i < Constants.COLORS.size(); i++) {
 			current.assignColor(Constants.COLORS.get(i));
 			if (current.goodColoringChoice()) {
