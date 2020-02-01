@@ -13,6 +13,8 @@ public class Runner {
 	public static final String FILE_NAME = "UnitedStates.txt";
 	//set true for local search, false for backtracking
 	public static final boolean HILL_CLIMBING = true;
+	//set to how many seconds max you want to run it for
+	public static final int MAX_SECONDS = 5;
 
 	public static void main(String[] args) throws IOException {
 		//read text file
@@ -28,7 +30,7 @@ public class Runner {
 		loader.printGraph();
 		
 		Colorer graphColorer = new GraphColoringFactory(HILL_CLIMBING).getColorer();
-		graphColorer.startColoring();
+		graphColorer.startColoring(MAX_SECONDS);
 		
 	}
 	

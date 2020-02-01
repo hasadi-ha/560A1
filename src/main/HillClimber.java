@@ -8,12 +8,12 @@ import constants.Constants;
 
 public class HillClimber extends Colorer {
 	
-	public void startColoring() {
+	public void startColoring(int maxSeconds) {
 		this.findConflicts();
-		if (this.colorStates()) {
+		if (this.colorStates(maxSeconds)) {
 			System.out.println(super.printColoring());
 		} else {
-			System.out.println("Failed to find coloring in 1 minute");
+			System.out.println("Failed to find coloring in " +  maxSeconds + " seconds");
 		}
 		
 	}
@@ -25,10 +25,10 @@ public class HillClimber extends Colorer {
 	 * Continues until the queue is empty.
 	 * @return true iff finds coloring in less than 1 minute
 	 */
-	private boolean colorStates() {
+	private boolean colorStates(int maxSeconds) {
 		long startTime = System.currentTimeMillis();
 		while (!Constants.CONFLICTS.isEmpty()) {
-			if (System.currentTimeMillis() - startTime >= 60000) {
+			if (System.currentTimeMillis() - startTime >= maxSeconds * 1000) {
 				return false;
 			}			
 			Constants.STEPS++;

@@ -18,6 +18,6 @@ public abstract class Colorer {
 		return builder.toString();
 	}
 	
-	public abstract void startColoring();
+	public abstract void startColoring(int maxTimeMilliseconds);
 
 }

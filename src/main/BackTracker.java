@@ -8,7 +8,7 @@ public class BackTracker extends Colorer {
 	/**
 	 * Start simple backtracking method to color graph.
 	 */
-	public void startColoring() {
+	public void startColoring(int maxSeconds) {
 		//while there's a valid option, traverse through states starting at beginning of list.
 		if (!colorState(0)) {
 			System.out.println("No solution");
