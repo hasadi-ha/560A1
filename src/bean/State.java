@@ -10,17 +10,21 @@ public class State {
 	private List<State> connectedTo;
 	private String name;
 	private Color color;
-	
+	private Color initColor;
+
 	/**
-	 * Initializes state object
-	 * @param name is the name of the state
+	 * Initialize state object
+	 * @param name name of the state
+	 * @param random true iff you want to initialize with color
 	 */
-	public State(String name) {
+	public State (String name, boolean random) {
 		this.name = name;
 		this.connectedTo = new ArrayList<>();
-		this.color = Constants.DUMMY_COLOR;
+		this.color = random ? this.getRandomColor() : Constants.DUMMY_COLOR;		
+		this.initColor = this.getColor();
 	}
 	
+
 	public void assignColor(Color color) {
 		this.color = color;
 	}
@@ -45,7 +49,7 @@ public class State {
 	 * Sets color back to dummy color
 	 */
 	public void removeColor() {
-		this.color = Constants.DUMMY_COLOR;
+		this.color = this.initColor;
 	}
 	
 	/**
@@ -70,7 +74,7 @@ public class State {
 	
 	/**
 	 * Checks if state name is the same as other state name
-	 * @param other is the state being comapred to
+	 * @param other is the state being comapared to
 	 * @return true if and only if this state is the same as the other one
 	 */
 	public boolean same(State other) {
@@ -94,6 +98,23 @@ public class State {
 		return true;
 	}
 	
+	/**
+	 * Checks all adjacent nodes and sees thhe number of colors that are the same
+	 * @return the integer number of conflicts
+	 */
+	public int numConflicts() {
+		int count =  0;
+		for (State s : this.connectedTo) {
+			if (s.getColor().same(this.getColor())) {
+				count++;
+			}
+		}
+		return count;
+	}
 	
+	private Color getRandomColor() {
+		int randomIndex = (int)( (Constants.COLORS.size()) * Math.random());
+		return Constants.COLORS.get(randomIndex);
+	}
 
 }

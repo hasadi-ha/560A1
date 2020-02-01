@@ -3,7 +3,7 @@ package main;
 import bean.State;
 import constants.Constants;
 
-public class BackTracker {
+public class BackTracker extends Colorer {
 	
 	/**
 	 * Start simple backtracking method to color graph.
@@ -13,22 +13,9 @@ public class BackTracker {
 		if (!colorState(0)) {
 			System.out.println("No solution");
 		} else {
-			System.out.println(printColoring());
+			System.out.println(super.printColoring());
 		}
         
-	}
-	
-	/**
-	 * Prints the state and the appropriate coloring
-	 * @return the coloring
-	 */
-	public String printColoring() {
-		StringBuilder builder = new StringBuilder();
-		for (State state : Constants.STATES) {
-			builder.append(state.printColor() + "\n");
-		}
-		builder.append(Constants.STEPS + "\n");
-		return builder.toString();
 	}
 	
 	/**
@@ -37,7 +24,7 @@ public class BackTracker {
 	 * @param currentIndex is the current part of the list of states we are at.
 	 * @return false when you've exhausted all the colors in the list.
 	 */
-	public boolean colorState(int currentIndex) {
+	private boolean colorState(int currentIndex) {
 		State current = Constants.STATES.get(currentIndex);
 		Constants.STEPS ++;
 		for (int i = 0; i < Constants.COLORS.size(); i++) {

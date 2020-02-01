@@ -1,5 +1,6 @@
 package constants;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import bean.Color;
@@ -11,6 +12,8 @@ public class Constants {
 	
 	public static List<Color> COLORS;
 	public static List<State> STATES;
+	
+	public static LinkedHashSet<State> CONFLICTS;
 	
 	public static int INDEX = 0;
 	public static int STEPS = 0;

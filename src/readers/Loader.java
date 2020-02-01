@@ -14,16 +14,16 @@ public class Loader {
 	 * @param ary is a list with <List of colors, list of states, list of adjacent states>
 	 * @return the list of states
 	 */
-	public List<State> makeGraph(List<List<String>> ary) {
-		List<State> states = loadStates(ary.get(1));
+	public List<State> makeGraph(List<List<String>> ary, boolean random) {
+		List<State> states = loadStates(ary.get(1), random);
 		
 		for (String stateConnection : ary.get(2)) {
 			String [] stateLine = stateConnection.split(" ");
-			State parentState = new State(stateLine[0]);
-			State childState =  new State(stateLine[1]);
+			State parentState = new State(stateLine[0], random);
+			State childState =  new State(stateLine[1], random);
 			
-			State one = new State(" ");
-			State two = new State(" ");
+			State one = new State(" ", random);
+			State two = new State(" ", random);
 			
 			for (State s : states)  {
 				if (s.same(parentState)) {
@@ -46,10 +46,10 @@ public class Loader {
 	 * @param states list of String states
 	 * @return list of State states
 	 */
-	public List<State> loadStates(List<String> states) {
+	public List<State> loadStates(List<String> states, boolean random) {
 		List<State> s = new ArrayList<>();
 		for (String e : states) {
-			s.add(new State(e));
+			s.add(new State(e, random));
 		}
 		return s;
 	}
