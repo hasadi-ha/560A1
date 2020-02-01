@@ -14,6 +14,16 @@ public class HillClimber extends Colorer {
 			System.out.println(super.printColoring());
 		} else {
 			System.out.println("Failed to find coloring in " +  maxSeconds + " seconds");
+			System.out.print("The following states had conflicts: ");
+			int i = 0;
+			for (State s : Constants.CONFLICTS) {
+				if (i == Constants.CONFLICTS.size()-1) {
+					System.out.print(s.getName());
+				} else {
+					System.out.print(s.getName() + ", ");
+				}
+				i++;
+			}
 		}
 		
 	}
