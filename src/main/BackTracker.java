@@ -124,10 +124,12 @@ public class BackTracker extends Colorer {
 		//otherwise, continues coloring states
 		for (int i = 0; i < availableColors.size(); i++) {
 			current.assignColor(availableColors.get(i));
+			//removes invalid colors from adjacent states
 			current.disableColors();
 			if (isPathValid()) {
 				return mostConstrainedForwardTracking();
 			}
+			//re-adds the colors from adjacent states before changing color of current state
 			current.reEnableColors();
 			current.removeColor();
 		}
