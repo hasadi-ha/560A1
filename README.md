@@ -1,5 +1,6 @@
 # 560A1
 
+To run in command line.
 Download the JAR file (which, if this is submitted as an assignment, will be attached with the assignment submission)
 Run the JAR file, which will prompt you for what is needed.
 
