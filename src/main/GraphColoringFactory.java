@@ -8,6 +8,9 @@ public class GraphColoringFactory {
 		this.hillClimber = hillClimber;
 	}
 	
+	/**
+	 * @return BackTracker or HillClimber depending on the Run Mode
+	 */
 	public Colorer getColorer() {
 		return hillClimber ? new HillClimber() : new BackTracker();
 	}

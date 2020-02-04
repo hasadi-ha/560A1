@@ -3,6 +3,7 @@ package constants;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import bean.BooleanColor;
 import bean.Color;
 import bean.State;
 
@@ -12,6 +13,8 @@ public class Constants {
 	
 	public static List<Color> COLORS;
 	public static List<State> STATES;
+	
+	public static List<BooleanColor> BOOLEAN_COLORS;
 	
 	public static LinkedHashSet<State> CONFLICTS;
 	

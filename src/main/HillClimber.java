@@ -8,7 +8,7 @@ import constants.Constants;
 
 public class HillClimber extends Colorer {
 	
-	public void startColoring(int maxSeconds) {
+	public void color(int mode, int maxSeconds) {
 		this.findConflicts();
 		if (this.colorStates(maxSeconds)) {
 			System.out.println(super.printColoring());
@@ -29,6 +29,7 @@ public class HillClimber extends Colorer {
 	}
 	
 	/**
+	 * This method performs basic hill climbing. No priority is given to any states and entire paths aren't checked
 	 * Finds conflicts in given coloring of states and attempts to fix them. Does not always work.
 	 * Creates a queue of states that have conflicts. If fixes coloring such that there  are less (or equal) conflicts, 
 	 * will assign new coloring, reload conflict queue and try again.
@@ -38,6 +39,7 @@ public class HillClimber extends Colorer {
 	private boolean colorStates(int maxSeconds) {
 		long startTime = System.currentTimeMillis();
 		while (!Constants.CONFLICTS.isEmpty()) {
+			//checks if we're still under time
 			if (System.currentTimeMillis() - startTime >= maxSeconds * 1000) {
 				return false;
 			}			
@@ -45,6 +47,8 @@ public class HillClimber extends Colorer {
 			State current = Constants.CONFLICTS.iterator().next();
 			Constants.CONFLICTS.remove(current);
 			
+			//traverses through all the colors and sees if assigning a different color helps reduce conflicts
+			//caused by that one state
 			for (int i = 0; i < Constants.COLORS.size(); i++) {
 				Color oldColor = current.getColor();
 				int oldConflicts = current.numConflicts();
@@ -58,6 +62,9 @@ public class HillClimber extends Colorer {
 		return true;
 	}
 
+	/**
+	 * Adds states with adjacent coloring conflicts into a list
+	 */
 	private void findConflicts() {
 		if (Constants.CONFLICTS == null) {
 			Constants.CONFLICTS = new LinkedHashSet<>();
