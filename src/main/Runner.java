@@ -17,7 +17,7 @@ public class Runner {
 	//set true for local search, false for backtracking
 	public static boolean hillClimbing = false;
 	//set to how many seconds max you want to run it for
-	public static int maxSeconds = 60;
+	public static int maxSeconds = 4;
 	//set which mode for the backtracking
 	public static int mode = 1;
 	
