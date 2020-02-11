@@ -1,7 +1,6 @@
 # 560A1
 
 To run in command line.
-Download the JAR file (which, if this is submitted as an assignment, will be attached with the assignment submission)
-Run the JAR file, which will prompt you for what is needed.
+Download the JAR file called GraphColoringUtil.jar, attached to this project.
 
 Have the complete directory name of the text file that you want to run. Some example text files are given in the project.
