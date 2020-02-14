@@ -1,0 +1,259 @@
+Enter the text file with states, colors, and links
+UnitedStates.txt
+Do you want to use local search? It might not color the graph, but if it does, it'll be fast (y/n). 
+@ Andy: Write b to run both.
+b
+AK	 -> 	MS	TN	MO	OK	 	LA	
+AZ	 -> 	CO	 	CA	UT	NV	
+AR	 -> 	
+CA	 -> 	AZ	NV	OR	
+CO	 -> 	OK	KS	 	WY	UT	 	AZ	
+CT	 -> 	MA	RI	 	
+DE	 -> 	NJ	PA	MD	
+FL	 -> 	GA	 	
+GA	 -> 	NC	SC	FL	 	TN	
+ID	 -> 	MT	WY	UT	OR	WA	
+IL	 -> 	KY	IN	MO	IA	WI	
+IN	 -> 	KY	OH	MI	IL	
+IA	 -> 	IL	WI	MN	MO	SD	NE	
+KS	 -> 	MO	OK	NE	CO	
+KY	 -> 	VA	WV	TN	OH	IN	IL	MO	
+LA	 -> 	MS	AK	 	
+ME	 -> 	NH	
+MD	 -> 	PA	DE	VA	WV	
+MA	 -> 	NH	VT	 	RI	CT	
+MI	 -> 	OH	IN	WI	
+MN	 -> 	WI	IA	ND	SD	
+MS	 -> 	 	LA	TN	AK	
+MO	 -> 	TN	KY	IL	IA	AK	NE	KS	OK	
+MT	 -> 	SD	ND	ID	WY	
+NE	 -> 	IA	MO	KS	
+NV	 -> 	AZ	UT	CA	OR	
+NH	 -> 	ME	VT	MA	
+NJ	 -> 	 	DE	PA	
+NC	 -> 	VA	TN	SC	GA	
+ND	 -> 	MN	SD	MT	
+OH	 -> 	PA	WV	KY	IN	MI	
+OK	 -> 	MO	AK	 	KS	 	CO	
+OR	 -> 	NV	ID	CA	WA	
+PA	 -> 	 	NJ	MD	OH	WV	DE	
+RI	 -> 	MA	CT	
+SC	 -> 	NC	GA	
+SD	 -> 	MN	IA	 	WY	MT	ND	
+TN	 -> 	VA	NC	GA	 	MS	KY	MO	AK	
+TZ	 -> 	
+UT	 -> 	WY	CO	 	AZ	NV	ID	
+VT	 -> 	NH	MA	 	
+VA	 -> 	MD	WV	KY	TN	NC	
+WA	 -> 	ID	OR	
+WV	 -> 	PA	MD	VA	OH	KY	
+WI	 -> 	MI	IL	MN	IA	
+WY	 -> 	 	SD	MT	ID	UT	CO	
+
+Starting Backtracking...
+
+
+AK	Red
+AZ	Red
+AR	Red
+CA	Green
+CO	Green
+CT	Red
+DE	Red
+FL	Red
+GA	Green
+ID	Red
+IL	Red
+IN	Green
+IA	Blue
+KS	Red
+KY	Blue
+LA	Green
+ME	Red
+MD	Green
+MA	Green
+MI	Blue
+MN	Red
+MS	Blue
+MO	Green
+MT	Green
+NE	Yellow
+NV	Blue
+NH	Blue
+NJ	Green
+NC	Blue
+ND	Blue
+OH	Red
+OK	Blue
+OR	Yellow
+PA	Blue
+RI	Blue
+SC	Red
+SD	Yellow
+TN	Yellow
+TZ	Red
+UT	Yellow
+VT	Red
+VA	Red
+WA	Green
+WV	Yellow
+WI	Green
+WY	Blue
+
+Number of steps: 25783907
+
+Backtracking with forward tracking...
+
+
+AK	Red
+AZ	Red
+AR	Red
+CA	Green
+CO	Green
+CT	Red
+DE	Red
+FL	Red
+GA	Green
+ID	Red
+IL	Red
+IN	Green
+IA	Green
+KS	Red
+KY	Blue
+LA	Green
+ME	Red
+MD	Green
+MA	Green
+MI	Red
+MN	Red
+MS	Yellow
+MO	Yellow
+MT	Green
+NE	Blue
+NV	Blue
+NH	Blue
+NJ	Green
+NC	Yellow
+ND	Blue
+OH	Blue
+OK	Blue
+OR	Yellow
+PA	Yellow
+RI	Blue
+SC	Blue
+SD	Yellow
+TN	Red
+TZ	Red
+UT	Yellow
+VT	Red
+VA	Blue
+WA	Green
+WV	Red
+WI	Blue
+WY	Blue
+
+Number of steps: 190
+
+Backtracking with forward tracking and most constrained variable...
+
+
+AK	Red
+MS	Blue
+AZ	Red
+KS	Red
+MO	Green
+CO	Green
+NV	Blue
+KY	Blue
+IA	Blue
+NE	Yellow
+UT	Yellow
+TN	Yellow
+GA	Green
+PA	Blue
+NC	Blue
+MD	Green
+VA	Red
+WV	Yellow
+LA	Green
+OH	Red
+CA	Green
+WY	Red
+ID	Green
+OK	Blue
+OR	Red
+IL	Red
+RI	Blue
+CT	Red
+IN	Green
+SD	Green
+MA	Green
+MT	Blue
+MN	Red
+NJ	Green
+ND	Yellow
+DE	Red
+SC	Red
+WI	Green
+WA	Blue
+MI	Blue
+VT	Blue
+NH	Red
+FL	Red
+ME	Green
+AR	Red
+TZ	Red
+
+Number of steps: 46
+
+Hill Climbing...
+
+
+AK	Yellow
+AZ	Yellow
+AR	Red
+CA	Green
+CO	Green
+CT	Green
+DE	Green
+FL	Green
+GA	Blue
+ID	Green
+IL	Blue
+IN	Green
+IA	Red
+KS	Blue
+KY	Yellow
+LA	Red
+ME	Green
+MD	Red
+MA	Red
+MI	Red
+MN	Blue
+MS	Blue
+MO	Green
+MT	Blue
+NE	Yellow
+NV	Blue
+NH	Blue
+NJ	Red
+NC	Green
+ND	Red
+OH	Blue
+OK	Red
+OR	Red
+PA	Yellow
+RI	Blue
+SC	Yellow
+SD	Green
+TN	Red
+TZ	Green
+UT	Red
+VT	Yellow
+VA	Blue
+WA	Yellow
+WV	Green
+WI	Green
+WY	Yellow
+
+Number of steps: 35
