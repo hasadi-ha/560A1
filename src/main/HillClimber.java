@@ -38,11 +38,23 @@ public class HillClimber extends Colorer {
 	 */
 	private boolean colorStates(int maxSeconds) {
 		long startTime = System.currentTimeMillis();
+		long trialTime = System.currentTimeMillis();
 		while (!Constants.CONFLICTS.isEmpty()) {
 			//checks if we're still under time
 			if (System.currentTimeMillis() - startTime >= maxSeconds * 1000) {
 				return false;
-			}			
+			}
+			
+			//if it's not working for a while, try setting new colors and try again
+			if (System.currentTimeMillis() - trialTime >= 5*1000) {
+				System.out.println("Failed to find, resetting colors...");
+				resetColors();
+				trialTime = System.currentTimeMillis();
+				System.out.println("Current Steps were: " + Constants.STEPS);
+				System.out.println("Resetting count.");
+				Constants.STEPS = 0;
+			}
+			
 			Constants.STEPS++;
 			State current = Constants.CONFLICTS.iterator().next();
 			Constants.CONFLICTS.remove(current);
@@ -75,6 +87,12 @@ public class HillClimber extends Colorer {
 			}
 		}
 		
+	}
+	
+	private void resetColors() {
+		for (State s : Constants.STATES) {
+			s.setRandomColor();
+		}
 	}
 	
 

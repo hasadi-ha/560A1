@@ -57,6 +57,12 @@ public class State {
 		return this.allowedColors;
 	}
 	
+	public void setRandomColor() {
+		Color randomColor = this.getRandomColor();
+		this.initColor = randomColor;
+		this.color = randomColor;
+	}
+	
 	/**
 	 * Sets color back to dummy color (or if was assigned random color, the initial random color)
 	 */
